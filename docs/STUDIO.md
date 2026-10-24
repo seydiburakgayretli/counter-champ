@@ -57,7 +57,7 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
       60–90 s runs, best time to KO. Tests mastery vs. endless.
 - [x] ALT-04 Four-Way Brawl (model) – ready 2026-10-24, see docs/ALTS.md: attackers from 4 sides (tap the quadrant / arrows),
       crowd of small opponents. Tests chaos/juice vs. readability.
-- [ ] ALT-05 Glove Shop (meta): coins per run, buy upgrades (extra heart, wider perfect window,
+- [x] ALT-05 Glove Shop (meta) – ready 2026-10-24, see docs/ALTS.md: coins per run, buy upgrades (extra heart, wider perfect window,
       combo shield) between runs. Tests retention / session count.
 - [ ] ALT-06 Pixel Retro (art): same game, 8-bit pixel look (procedural pixel sprites, chiptune SFX).
 - [ ] ALT-07 Neon Night (art): flat neon / synthwave, glow lines on dark, bloom-like flashes.
@@ -73,6 +73,7 @@ docs/ALTS.md (hypothesis, what changed, size, cost to bring into the main game, 
 inbox line: "ALT-nn: Keep / Kill / Merge into main?".
 
 ## Owner inbox (owner answers here or in chat; newest on top)
+- [ ] ALT-05 Glove Shop (`/alts/05-shop/`): Keep / Kill / Merge into main?
 - [ ] ALT-04 Four-Way Brawl (`/alts/04-brawl/`): Keep / Kill / Spin off as its own game?
 - [ ] ALT-03 Boss Rush (`/alts/03-boss/`): Keep / Kill / Merge into main?
 - [ ] ALT-02 Rhythm Fighter (`/alts/02-rhythm/`, sound on!): Keep / Kill / Merge into main?

@@ -116,5 +116,9 @@
 - Done: `alts/04-brawl/` – new top-down scene, 4-direction arrivals, pooled brawlers, pace ramp over 90 s.
 - Tests: alts green; scripted player 45 s, no errors. Next: ALT-05 Glove Shop. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-05 Glove Shop (autopilot)
+- Done: `alts/05-shop/` – coins per run, 3 upgrades, shop panel on title/game over, compact over text.
+- Tests: alts green; scripted 2 runs → bought timing lvl 1, save persisted. Next: ALT-06 Pixel Retro. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

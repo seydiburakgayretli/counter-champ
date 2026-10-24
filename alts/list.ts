@@ -13,4 +13,5 @@ export const ALTS: Alt[] = [
   { id: '02-rhythm', name: 'Rhythm Fighter', kind: 'model', line: 'A beat plays; every punch lands on it. Counter on the beat, tempo rises per rival.', status: 'ready' },
   { id: '03-boss', name: 'Boss Rush', kind: 'model', line: 'One Champ, three phases with new tricks. Knock him out as fast as you can.', status: 'ready' },
   { id: '04-brawl', name: 'Four-Way Brawl', kind: 'model', line: 'Brawlers rush in from 4 sides. Tap their quadrant (or arrows) as they arrive.', status: 'ready' },
+  { id: '05-shop', name: 'Glove Shop', kind: 'meta', line: 'Earn coins every run, buy upgrades: extra heart, wider timing, combo shield.', status: 'ready' },
 ];

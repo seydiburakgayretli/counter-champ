@@ -54,3 +54,13 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
 - **Cost to merge:** large – a different game, not a feature; would ship as its own title.
 - **Risk:** 4 directions on a phone = thumb travel and mis-taps on quadrant borders; loses the boxing
   "read the opponent" identity. Scripted perfect player survives 45 s+ (bots don't tire; humans will).
+
+### ALT-05 Glove Shop – `/alts/05-shop/` (ready, 2026-10-24)
+- **Hypothesis:** a visible "spend coins → get stronger" loop raises runs per session and return visits.
+- **What changed:** coins per run (score/40 + 10 per KO, ~30–40 for a first run). Shop on title and game
+  over (tap a button or keys 1/2/3): +1 heart (60/180), wider timing +12 %/level (40/100/220), combo
+  shield = first hit per run costs no heart (120). Saved per player. Game over text made compact.
+- **Size:** ~+20 KB raw (~7 KB gzip) on top of the shared game chunk.
+- **Cost to merge:** small–medium (~1 run): shop panel + save; needs prices re-tuned with the real curve.
+- **Risk:** upgrades make the game easier over time → score comparisons less fair; the shop panel takes
+  screen space at game over (restart still 1 tap). First purchase reachable after run 1–2 (scripted test).
