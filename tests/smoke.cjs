@@ -41,6 +41,15 @@ const fail = (msg) => { console.error('SMOKE FAIL:', msg); process.exitCode = 1;
     // touch input on the right half must be accepted too
     await page.touchscreen.tap(300, 400);
 
+    // rotate to landscape mid-run and back: layout follows, page never scrolls
+    for (const [w, h] of [[780, 390], [390, 780]]) {
+      await page.setViewportSize({ width: w, height: h });
+      await sleep(200);
+      const dims = await page.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.scrollHeight,
+        document.querySelector('canvas').width, document.querySelector('canvas').height]);
+      if (dims[0] > w || dims[1] > h || dims[2] !== w || dims[3] !== h) fail(`bad layout at ${w}x${h}: ${dims}`);
+    }
+
     // stop playing -> hearts drop -> game over
     await page.waitForFunction(() => window.__cc.state === 'over', null, { timeout: 60000 });
     const over = await snap();

@@ -60,5 +60,20 @@
   inspector. Game over tap-right now means continue, not retry (left/Space/any key retries).
 - Next: M5 responsive/perf/size. Model: Sonnet.
 
+## 2026-10-24 – M5 (autopilot run 1/3, code done, phone check pending)
+- Done: layout checked at 320x480, 390x844, 600x1600, 768x1024, 844x390, 1280x720, 1920x600 and live
+  rotation – no scroll, no overlap of HUD; canvas follows resize. Title/menu text width-capped
+  (one line "COUNTER CHAMP" on narrow phones), title gets a light dim so text reads over the fighter.
+  Text rendered at devicePixelRatio (max 2) → crisp on phones. Smoke now rotates mid-run and checks layout.
+- Pooling audit: particles/pop-ups pooled, HUD text only re-set on change, no per-frame allocations found.
+- Perf: headless Chromium has no GPU (software GL) → ~30 fps there even with an empty-ish scene; hiding
+  all Graphics gives 60 → cost is fill rate in the software renderer, not game code. Baking the arena
+  into a texture was slower headless, reverted. Real 60 fps can only be checked on a phone.
+- Bundle 1.23 MB (341 KB gzip) for local/crazygames/poki builds; budget < 5 MB ✅.
+- Model: ran on Opus (owner set this schedule; tag says Sonnet).
+- Autopilot decisions (owner review): title dim 0.35 (undo: `setMsg(..., 0)` in showTitle).
+- Need: open the Pages link on a phone, both orientations; tell me if it stutters.
+- Next: M6 release kit + final review (autopilot run 2/3, 03:00 UTC). Model: Opus.
+
 ## Overrides
 (none)

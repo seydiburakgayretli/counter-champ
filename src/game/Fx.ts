@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 
 const FONT = 'system-ui, sans-serif';
+/** Crisp text on hi-DPI phones; capped at 2 to keep texture memory small. */
+export const TEXT_RES = Math.min(2, window.devicePixelRatio || 1);
 const N_PARTICLES = 32;
 const N_POPUPS = 6;
 
@@ -79,7 +81,7 @@ export class Popups {
   constructor(scene: Phaser.Scene) {
     for (let i = 0; i < N_POPUPS; i++) {
       this.texts.push(
-        scene.add.text(0, 0, '', { fontFamily: FONT, fontStyle: '800', color: '#ffffff', stroke: '#14141f', strokeThickness: 5, align: 'center' })
+        scene.add.text(0, 0, '', { fontFamily: FONT, fontStyle: '800', color: '#ffffff', stroke: '#14141f', strokeThickness: 5, align: 'center', resolution: TEXT_RES })
           .setOrigin(0.5).setVisible(false),
       );
     }

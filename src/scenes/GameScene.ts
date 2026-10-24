@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { platform } from '../platform';
 import { Glove, INK, drawArena, drawFighter, drawSpeaker, type Face } from '../game/art';
-import { Particles, Popups } from '../game/Fx';
+import { Particles, Popups, TEXT_RES } from '../game/Fx';
 import { Sfx } from '../game/Sfx';
 import { GRACE_MS, HEAL_EVERY, MAX_HEARTS, rivalFor, tuning, type Tuning } from '../game/tuning';
 import { FLOORS, GLOVES, nextGoal, topUnlocked } from '../game/unlocks';
@@ -157,7 +157,7 @@ export class GameScene extends Phaser.Scene {
     this.dim = this.add.rectangle(0, 0, 10, 10, 0x000000, 0.6).setVisible(false);
 
     const txt = (ox: number, oy: number): Phaser.GameObjects.Text =>
-      this.add.text(0, 0, '', { fontFamily: FONT, fontStyle: '800', color: '#ffffff', stroke: '#14141f', strokeThickness: 5, align: 'center' })
+      this.add.text(0, 0, '', { fontFamily: FONT, fontStyle: '800', color: '#ffffff', stroke: '#14141f', strokeThickness: 5, align: 'center', resolution: TEXT_RES })
         .setOrigin(ox, oy);
     this.scoreText = txt(0, 0);
     this.bestText = txt(1, 0).setLineSpacing(2);
@@ -265,7 +265,8 @@ export class GameScene extends Phaser.Scene {
     this.bestText.setPosition(w - pad, pad).setFontSize(Math.round(fs * 0.7));
     this.rivalText.setPosition(w / 2, this.cy + u * 4.5).setFontSize(Math.round(fs * 0.75));
     this.comboText.setPosition(w / 2, h * 0.58).setFontSize(Math.round(fs * 1.6));
-    this.msgText.setPosition(w / 2, h * 0.53).setFontSize(Math.round(fs * 1.3)).setWordWrapWidth(w * 0.9);
+    // cap by width so "COUNTER CHAMP" stays on one line on narrow phones
+    this.msgText.setPosition(w / 2, h * 0.53).setFontSize(Math.round(Math.min(fs * 1.3, w / 11))).setWordWrapWidth(w * 0.9);
 
     const barX = pad + MAX_HEARTS * u * 1.1 + u * 0.3;
     this.barW = w - pad - u * 1.5 - barX;
@@ -290,15 +291,16 @@ export class GameScene extends Phaser.Scene {
     this.heartIcons.forEach((hi, i) => hi.setFillStyle(i < this.hearts ? 0xe63946 : 0x3a3a4a));
   }
 
-  private setMsg(text: string, dim: boolean): void {
+  /** `dim`: 0 = none, else overlay alpha (title uses a light one so the fighter still shows). */
+  private setMsg(text: string, dim: number): void {
     this.msgText.setText(text).setVisible(text !== '');
-    this.dim.setVisible(dim);
+    this.dim.setVisible(dim > 0).setFillStyle(0x000000, dim);
   }
 
   private showTitle(): void {
     this.state = 'title';
     const goal = nextGoal(this.bestKos, this.best);
-    this.setMsg(`COUNTER CHAMP\n\nTAP TO FIGHT\nBest ${this.best}${goal ? `\n\n${goal}` : ''}`, false);
+    this.setMsg(`COUNTER CHAMP\n\nTAP TO FIGHT\nBest ${this.best}${goal ? `\n\n${goal}` : ''}`, 0.35);
   }
 
   private pop(text: string, color: string): void {
@@ -333,12 +335,12 @@ export class GameScene extends Phaser.Scene {
     this.pausedFrom = this.state;
     this.state = 'paused';
     platform.gameplayStop();
-    this.setMsg('PAUSED\n\nTAP TO RESUME', true);
+    this.setMsg('PAUSED\n\nTAP TO RESUME', 0.6);
   }
 
   private resume(): void {
     this.state = this.pausedFrom;
-    this.setMsg('', false);
+    this.setMsg('', 0);
     platform.gameplayStart();
   }
 
@@ -361,7 +363,7 @@ export class GameScene extends Phaser.Scene {
     this.sfx.start();
     this.applyRival();
     this.setHearts();
-    this.setMsg('', false);
+    this.setMsg('', 0);
     this.beginIdle();
     platform.gameplayStart();
   }
@@ -401,7 +403,7 @@ export class GameScene extends Phaser.Scene {
     this.hearts = 2;
     this.setHearts();
     this.combo = 0;
-    this.setMsg('', false);
+    this.setMsg('', 0);
     this.beginIdle();
     platform.gameplayStart();
   }
@@ -572,7 +574,7 @@ export class GameScene extends Phaser.Scene {
     const actions = this.continued ? 'TAP TO RETRY' : 'TAP LEFT: RETRY\nTAP RIGHT: CONTINUE (AD)';
     this.setMsg(
       `KNOCKED OUT\n\nScore ${this.score}\n${this.newBest ? 'NEW BEST!' : `Best ${this.best}`}\nBest rival #${this.bestRival}\n\n${goal ? `${goal}\n\n` : ''}${actions}`,
-      true,
+      0.6,
     );
   }
 

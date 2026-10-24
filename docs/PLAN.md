@@ -40,9 +40,9 @@ Acceptance: each build mode runs in its portal QA tool / local harness without e
 
 ## M5 – Responsive, performance, size
 Model: Sonnet
-- [ ] Portrait + landscape layouts, resize live, no scroll
-- [ ] Pooling audit, no per-frame allocations, 60 fps
-- [ ] Bundle size report, < 5 MB
+- [x] Portrait + landscape layouts, resize live, no scroll
+- [x] Pooling audit, no per-frame allocations, 60 fps (60 fps on a real phone: owner check)
+- [x] Bundle size report, < 5 MB
 Acceptance: works on phone (both orientations) and desktop; size within budget.
 
 ## M6 – Release kit
