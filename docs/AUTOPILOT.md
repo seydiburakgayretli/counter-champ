@@ -7,8 +7,9 @@ Used when a run is started by a scheduled task while the owner is away (prompt s
 1. `git pull origin main`. Read CLAUDE.md, last PROGRESS.md entry, PLAN.md.
 2. If the last commit is less than 10 min old and not from an autopilot run, the owner is
    working: stop without changes.
-3. Pick the run's task from the prompt. If it is already ticked in PLAN.md, take the next
-   unticked milestone; if nothing is left, stop without changes.
+3. Pick the run's task: the prompt's task, else the first unblocked line of the Board in
+   docs/STUDIO.md (respect its WIP limits). Mark it "in progress (date)" first and push, so a
+   parallel run skips it. Nothing unblocked → stop without changes.
 4. Model check: no waiting. If the model does not match the milestone tag, do it anyway and
    note it in PROGRESS.md (the owner set the model for this run).
 
@@ -22,11 +23,12 @@ Used when a run is started by a scheduled task while the owner is away (prompt s
 
 ## Never (even on autopilot)
 - Submit to a portal, create accounts, touch `car-advisor`, force-push, rewrite history.
-- Skip/disable a test to get green. Start a second game. Add scope beyond PLAN.md
+- Skip/disable a test to get green. Start a game that is not on the Studio board. Add scope beyond PLAN.md
   (ideas → IDEAS.md).
 - Push a red build: build, typecheck, `npm run smoke`, `npm run test:portal` must pass.
   If they can't be made green in the run, commit nothing to `main`; log the failure.
 
 ## End
-Append PROGRESS.md (Done / Bundle / Autopilot decisions / Need / Next + model), tick PLAN.md,
+Append PROGRESS.md (Done / Bundle / Autopilot decisions / Need / Next + model), tick PLAN.md
+and the Board line, add owner questions to the STUDIO.md inbox,
 one commit, `git push origin main`. Time-box: stop after ~60 min of work and log where you are.
