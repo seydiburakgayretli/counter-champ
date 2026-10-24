@@ -45,5 +45,8 @@
 - Not verified: sim player models are guesses – owner playtest decides. No locker menu (→ IDEAS).
 - Next: M4 portal adapter + ads. Model: Sonnet.
 
+## 2026-10-24 – Repo fix
+- Work moved to `counter-champ` (public, Pages on `main`); `car-advisor` was the wrong repo, never use it.
+
 ## Overrides
 (none)
