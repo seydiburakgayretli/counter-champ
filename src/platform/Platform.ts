@@ -1,4 +1,4 @@
-/** Single portal interface. Implementations: local, crazygames, poki (selected by build mode in M4). */
+/** Single portal interface. Implementations: local, crazygames, poki (selected by build mode). */
 export interface Platform {
   init(): Promise<void>;
   loadingStart(): void;

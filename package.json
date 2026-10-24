@@ -10,7 +10,8 @@
     "build:poki": "tsc --noEmit && vite build --mode poki",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "smoke": "node tests/smoke.cjs"
+    "smoke": "node tests/smoke.cjs",
+    "test:portal": "node tests/portal.cjs crazygames && node tests/portal.cjs poki"
   },
   "dependencies": {
     "phaser": "3.90.0"

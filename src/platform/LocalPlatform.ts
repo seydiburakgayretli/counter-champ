@@ -1,9 +1,7 @@
-import type { Platform } from './Platform';
+import { BasePlatform } from './BasePlatform';
 
-/** Dev/GitHub Pages platform: logs events, guards gameplay start/stop order, localStorage saves. */
-export class LocalPlatform implements Platform {
-  private playing = false;
-
+/** Dev/GitHub Pages platform: logs events, fake 1 s ad overlay, localStorage saves. */
+export class LocalPlatform extends BasePlatform {
   async init(): Promise<void> {
     console.log('[platform] local init');
   }
@@ -16,40 +14,36 @@ export class LocalPlatform implements Platform {
     console.log('[platform] loadingFinished');
   }
 
-  gameplayStart(): void {
-    if (this.playing) return;
-    this.playing = true;
+  protected onGameplayStart(): void {
     console.log('[platform] gameplayStart');
   }
 
-  gameplayStop(): void {
-    if (!this.playing) return;
-    this.playing = false;
+  protected onGameplayStop(): void {
     console.log('[platform] gameplayStop');
   }
 
   async commercialBreak(): Promise<void> {
     console.log('[platform] commercialBreak (fake)');
+    await this.fakeAd('AD');
   }
 
   async rewardedBreak(): Promise<boolean> {
     console.log('[platform] rewardedBreak (fake)');
+    await this.fakeAd('REWARDED AD');
     return true;
   }
 
-  save(key: string, value: string): void {
-    try {
-      localStorage.setItem(`cc.${key}`, value);
-    } catch {
-      /* storage blocked: ignore */
-    }
-  }
-
-  load(key: string): string | null {
-    try {
-      return localStorage.getItem(`cc.${key}`);
-    } catch {
-      return null;
-    }
+  private fakeAd(label: string): Promise<void> {
+    return new Promise((resolve) => {
+      const el = document.createElement('div');
+      el.textContent = `${label} (fake)`;
+      el.style.cssText =
+        'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#000c;color:#fff;font:700 24px sans-serif;z-index:10';
+      document.body.appendChild(el);
+      window.setTimeout(() => {
+        el.remove();
+        resolve();
+      }, 1000);
+    });
   }
 }

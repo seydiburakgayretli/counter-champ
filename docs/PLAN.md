@@ -33,9 +33,9 @@ Acceptance: progress survives reload; unlock reached in first 3 runs.
 
 ## M4 – Portal adapter + ads
 Model: Sonnet
-- [ ] local (1 s fake ad overlay), crazygames, poki implementations (check current SDK docs)
-- [ ] Interstitial every 3rd KO / at game over (rate-limited), rewarded continue once
-- [ ] Event order verified (no double start/stop)
+- [x] local (1 s fake ad overlay), crazygames, poki implementations (check current SDK docs)
+- [x] Interstitial every 3rd KO / at game over (rate-limited), rewarded continue once
+- [x] Event order verified (no double start/stop)
 Acceptance: each build mode runs in its portal QA tool / local harness without errors.
 
 ## M5 – Responsive, performance, size

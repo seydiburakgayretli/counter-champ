@@ -48,5 +48,17 @@
 ## 2026-10-24 – Repo fix
 - Work moved to `counter-champ` (public, Pages on `main`); `car-advisor` was the wrong repo, never use it.
 
+## 2026-10-24 – M4 (code done, real portal QA pending)
+- Done: `BasePlatform` (start/stop guard, saves, SDK loader w/ timeout) + Local (1 s fake ad overlay),
+  CrazyGames v3, Poki v2 adapters, picked by `import.meta.env.MODE`. SDKs load from portal CDN at runtime
+  (not bundled); blocked/failed SDK = game runs without ads. Interstitial before retry: every 2nd run,
+  max once/60 s. Rewarded continue once per run (game over: tap right half / →, 2 hearts, same rival).
+  Ads freeze game time and mute sound. No mid-run ad (hurts flow).
+- Tests: `npm run smoke` and `npm run test:portal` (mocked SDKs, checks no double start/stop, rewarded call). Both pass.
+- Bundle 1.23 MB (341 KB gzip), no console errors.
+- Not verified: real SDKs (written from memory of the docs, no network) – check in CrazyGames QA tool / Poki
+  inspector. Game over tap-right now means continue, not retry (left/Space/any key retries).
+- Next: M5 responsive/perf/size. Model: Sonnet.
+
 ## Overrides
 (none)

@@ -6,7 +6,7 @@ import { Sfx } from '../game/Sfx';
 import { GRACE_MS, HEAL_EVERY, MAX_HEARTS, rivalFor, tuning, type Tuning } from '../game/tuning';
 import { FLOORS, GLOVES, nextGoal, topUnlocked } from '../game/unlocks';
 
-type State = 'title' | 'idle' | 'threat' | 'gap' | 'ko' | 'over' | 'paused';
+type State = 'title' | 'idle' | 'threat' | 'gap' | 'ko' | 'over' | 'paused' | 'ad';
 type Side = -1 | 1;
 type Fx = 'none' | 'hit' | 'block' | 'counter';
 type MissReason = 'early' | 'late' | 'wrong';
@@ -32,6 +32,9 @@ interface DebugState {
 const FONT = 'system-ui, sans-serif';
 const GAP_MS = 300;
 const RETRY_LOCK_MS = 350;
+/** Interstitial before a retry: every 2nd run, and at most once per minute. */
+const AD_EVERY_RUNS = 2;
+const AD_COOLDOWN_MS = 60000;
 const KO_FALL_MS = 800;
 const KO_TOTAL_MS = 1500;
 const KO_BLOCK_SHARE = 0.35;
@@ -63,6 +66,9 @@ export class GameScene extends Phaser.Scene {
   private combo = 0;
   private ko = 0;
   private newBest = false;
+  private continued = false;
+  private runsSinceAd = 0;
+  private lastAdAt = performance.now();
 
   // threat state
   private readonly seq: Threat[] = [
@@ -307,7 +313,9 @@ export class GameScene extends Phaser.Scene {
         this.startRun();
         break;
       case 'over':
-        if (this.t - this.overAt >= RETRY_LOCK_MS) this.startRun();
+        if (this.t - this.overAt < RETRY_LOCK_MS) break;
+        if (side === 1 && !this.continued) void this.continueRun();
+        else void this.retry();
         break;
       case 'paused':
         this.resume();
@@ -321,7 +329,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private pause(): void {
-    if (this.state === 'title' || this.state === 'over' || this.state === 'paused') return;
+    if (this.state === 'title' || this.state === 'over' || this.state === 'paused' || this.state === 'ad') return;
     this.pausedFrom = this.state;
     this.state = 'paused';
     platform.gameplayStop();
@@ -344,6 +352,7 @@ export class GameScene extends Phaser.Scene {
     this.level = 0;
     this.tn = tuning(0);
     this.newBest = false;
+    this.continued = false;
     this.runStart = this.t;
     this.oppOffX = 0;
     this.oppOffY = 0;
@@ -352,6 +361,46 @@ export class GameScene extends Phaser.Scene {
     this.sfx.start();
     this.applyRival();
     this.setHearts();
+    this.setMsg('', false);
+    this.beginIdle();
+    platform.gameplayStart();
+  }
+
+  /** Runs an ad with game time frozen and sound off; always returns to normal sound. */
+  private async inAd<T>(run: () => Promise<T>): Promise<T> {
+    const wasMuted = this.sfx.muted;
+    this.state = 'ad';
+    this.sfx.setMuted(true);
+    try {
+      return await run();
+    } finally {
+      this.sfx.setMuted(wasMuted);
+      this.lastAdAt = performance.now();
+    }
+  }
+
+  /** Natural break: interstitial (rate-limited) before the next run. */
+  private async retry(): Promise<void> {
+    this.runsSinceAd++;
+    if (this.runsSinceAd >= AD_EVERY_RUNS && performance.now() - this.lastAdAt >= AD_COOLDOWN_MS) {
+      this.runsSinceAd = 0;
+      await this.inAd(() => platform.commercialBreak());
+    }
+    this.startRun();
+  }
+
+  /** Optional rewarded ad: once per run, resume on the same rival with 2 hearts. */
+  private async continueRun(): Promise<void> {
+    this.continued = true;
+    const ok = await this.inAd(() => platform.rewardedBreak());
+    if (!ok) {
+      this.state = 'over';
+      this.showOver();
+      return;
+    }
+    this.hearts = 2;
+    this.setHearts();
+    this.combo = 0;
     this.setMsg('', false);
     this.beginIdle();
     platform.gameplayStart();
@@ -515,9 +564,14 @@ export class GameScene extends Phaser.Scene {
     }
     if (this.level + 1 > this.bestRival) this.bestRival = this.level + 1;
     this.writeSave();
+    this.showOver();
+  }
+
+  private showOver(): void {
     const goal = nextGoal(this.bestKos, this.best);
+    const actions = this.continued ? 'TAP TO RETRY' : 'TAP LEFT: RETRY\nTAP RIGHT: CONTINUE (AD)';
     this.setMsg(
-      `KNOCKED OUT\n\nScore ${this.score}\n${this.newBest ? 'NEW BEST!' : `Best ${this.best}`}\nBest rival #${this.bestRival}\n\n${goal ? `${goal}\n\n` : ''}TAP TO RETRY`,
+      `KNOCKED OUT\n\nScore ${this.score}\n${this.newBest ? 'NEW BEST!' : `Best ${this.best}`}\nBest rival #${this.bestRival}\n\n${goal ? `${goal}\n\n` : ''}${actions}`,
       true,
     );
   }
