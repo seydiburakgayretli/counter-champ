@@ -21,3 +21,14 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
 - **Cost to merge:** small (~1 run): flag + 2 methods in GameScene, glove colour param in art.ts; tuning sim rerun.
 - **Risk:** "tap the opposite side" may feel backwards for the first heavy; red vs. yellow must read on
   small phones. Scripted perfect player: reached rival 3 with full hearts, punish fired correctly.
+
+### ALT-02 Rhythm Fighter – `/alts/02-rhythm/` (ready, 2026-10-24)
+- **Hypothesis:** a beat makes timing learnable by ear → more "flow", longer sessions, more replays.
+- **What changed:** generated music loop (kick, off-beat hat, 4-bar bass), 96 BPM +8 per rival (max 160).
+  Every wind-up starts and every impact lands on the eighth-note grid; screen pulses on beats.
+  Perfect = "ON BEAT", 150×combo (was 100). Hit-stop removed so the beat never stutters (shake stays).
+- **Size:** +18 KB raw (6.4 KB gzip) on top of the shared game chunk.
+- **Cost to merge:** medium (~1–2 runs): grid scheduling in GameScene, music in Sfx, re-tune curve
+  (wind-ups now snap to eighths), decide hit-stop vs. beat.
+- **Risk:** needs sound to shine (many portal players are muted at first); losing hit-stop costs some
+  punch. Not heard by Claude (no audio device) – owner must listen. Scripted player: rival 3, full hearts.

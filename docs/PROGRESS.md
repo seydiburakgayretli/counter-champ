@@ -103,5 +103,10 @@
 - Tests: alts + smoke green; scripted perfect player reached rival 3 with full hearts, punish fired.
 - Need: owner plays it (inbox). Next: ALT-02 Rhythm Fighter. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-02 Rhythm Fighter (autopilot)
+- Done: `alts/02-rhythm/` – generated beat, punches on the eighth-note grid, tempo per rival, no hit-stop.
+- Tests: alts + scripted perfect player (rival 3, full hearts) green. Audio not verifiable here.
+- Next: ALT-03 Boss Rush. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

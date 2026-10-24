@@ -51,7 +51,7 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
 - [x] ALT-00: alternatives infra – done 2026-10-24 (`alts/`, `/alts/` index, `npm run test:alts`, how-to in docs/ALTS.md)
 - [x] ALT-01 Dodge & Counter (model) – ready 2026-10-24, see docs/ALTS.md: swipe up / second key = dodge; some punches can't be
       blocked, only dodged → dodge then counter for x2. Tests depth vs. one-thumb simplicity.
-- [ ] ALT-02 Rhythm Fighter (model): punches land on a music beat (generated WebAudio loop);
+- [x] ALT-02 Rhythm Fighter (model) – ready 2026-10-24, see docs/ALTS.md: punches land on a music beat (generated WebAudio loop);
       counters on the beat score more; tempo rises per rival. Tests "flow" retention.
 - [ ] ALT-03 Boss Rush (model): one big rival per run with 3 phases and new tells per phase,
       60–90 s runs, best time to KO. Tests mastery vs. endless.
@@ -73,6 +73,7 @@ docs/ALTS.md (hypothesis, what changed, size, cost to bring into the main game, 
 inbox line: "ALT-nn: Keep / Kill / Merge into main?".
 
 ## Owner inbox (owner answers here or in chat; newest on top)
+- [ ] ALT-02 Rhythm Fighter (`/alts/02-rhythm/`, sound on!): Keep / Kill / Merge into main?
 - [ ] ALT-01 Dodge & Counter (`/alts/01-dodge/`): Keep / Kill / Merge into main?
 - [ ] Submit Counter Champ to CrazyGames: zip + covers in `release-assets/`, steps in docs/RELEASE.md (~15 min).
 - [ ] Look at the covers in `release-assets/covers/` – OK as is, or want a drawn cover later?

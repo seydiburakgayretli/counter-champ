@@ -10,4 +10,5 @@ export interface Alt {
 export const ALTS: Alt[] = [
   { id: '00-base', name: 'Base game', kind: 'base', line: 'The current Counter Champ, for comparison.', status: 'ready' },
   { id: '01-dodge', name: 'Dodge & Counter', kind: 'model', line: 'Red punches can\'t be blocked: tap the other side to slip, then punish for double.', status: 'ready' },
+  { id: '02-rhythm', name: 'Rhythm Fighter', kind: 'model', line: 'A beat plays; every punch lands on it. Counter on the beat, tempo rises per rival.', status: 'ready' },
 ];
