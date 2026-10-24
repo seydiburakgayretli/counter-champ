@@ -74,3 +74,13 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
   style per game (market rule), so it is either/or.
 - **Risk:** small HUD text gets hard to read in landscape; pixel font is the system monospace (no custom
   font asset). Pointer + keyboard input verified through the zoom in portrait and landscape.
+
+### ALT-07 Neon Night – `/alts/07-neon/` (ready, 2026-10-24)
+- **Hypothesis:** a synthwave look reads "cool/modern" in thumbnails and suits a dark-mode portal grid.
+- **What changed:** dark fills + neon outlines in each rival's colour, cyan/magenta ropes, sunset sun and
+  perspective grid floor; glow faked with a wide faint stroke under a thin bright one. Gameplay identical.
+- **Size:** ~+19 KB raw (~6.6 KB gzip).
+- **Cost to merge:** small as a skin (art.ts + scene colours), but either/or with the current style.
+- **Risk:** Phaser's real glow shader (postFX) was tried and dropped – it froze the software renderer and
+  would hurt weak phones. Even without it, the full-screen grid costs frame time headless (50 vs 33 ms);
+  check fps on a phone before choosing this.

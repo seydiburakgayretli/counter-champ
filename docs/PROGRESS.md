@@ -125,5 +125,9 @@
   scaled size; switched to Phaser zoom + manual resize), thin outlines, monospace, square-wave SFX.
 - Tests: alts green; pointer hits verified in portrait + landscape. Next: ALT-07 Neon Night. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-07 Neon Night (autopilot)
+- Done: `alts/07-neon/` – synthwave skin; postFX glow dropped (froze software GL), double-stroke glow instead.
+- Tests: alts green; pointer hits in portrait + landscape. Next: ALT-08 Doodle Paper. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

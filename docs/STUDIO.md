@@ -60,7 +60,7 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
 - [x] ALT-05 Glove Shop (meta) – ready 2026-10-24, see docs/ALTS.md: coins per run, buy upgrades (extra heart, wider perfect window,
       combo shield) between runs. Tests retention / session count.
 - [x] ALT-06 Pixel Retro (art) – ready 2026-10-24, see docs/ALTS.md: same game, 8-bit pixel look (procedural pixel sprites, chiptune SFX).
-- [ ] ALT-07 Neon Night (art): flat neon / synthwave, glow lines on dark, bloom-like flashes.
+- [x] ALT-07 Neon Night (art) – ready 2026-10-24, see docs/ALTS.md: flat neon / synthwave, glow lines on dark, bloom-like flashes.
 - [ ] ALT-08 Doodle Paper (art): sketchy hand-drawn lines on paper, wobble animation.
 - [ ] ALT-09 Animal Boxers (design language): cartoon animal cast (bear, cat, rooster…),
       each with a funny tell and KO pose. Tests character appeal for thumbnails/clicks.
@@ -73,6 +73,7 @@ docs/ALTS.md (hypothesis, what changed, size, cost to bring into the main game, 
 inbox line: "ALT-nn: Keep / Kill / Merge into main?".
 
 ## Owner inbox (owner answers here or in chat; newest on top)
+- [ ] ALT-07 Neon Night (`/alts/07-neon/`): Keep / Kill / Make it the main style?
 - [ ] ALT-06 Pixel Retro (`/alts/06-pixel/`): Keep / Kill / Make it the main style?
 - [ ] ALT-05 Glove Shop (`/alts/05-shop/`): Keep / Kill / Merge into main?
 - [ ] ALT-04 Four-Way Brawl (`/alts/04-brawl/`): Keep / Kill / Spin off as its own game?
