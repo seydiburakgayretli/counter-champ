@@ -127,7 +127,9 @@
 
 ## 2026-10-24 – ALT-07 Neon Night (autopilot)
 - Done: `alts/07-neon/` – synthwave skin; postFX glow dropped (froze software GL), double-stroke glow instead.
-- Tests: alts green; pointer hits in portrait + landscape. Next: ALT-08 Doodle Paper. Model: Sonnet (running on Opus).
+- Tests: pointer hits in portrait + landscape. Mistake: pushed f8d362f with `test:alts` red (8 alts in
+  parallel on software GL → timeouts; misread a `tail -1`). Fixed next commit: alts run 2 at a time, all 8 green.
+  Next: ALT-08 Doodle Paper. Model: Sonnet (running on Opus).
 
 ## Overrides
 (none)

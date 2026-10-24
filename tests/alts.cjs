@@ -46,7 +46,8 @@ async function checkAlt(browser, id) {
     const links = await index.$$eval('a.card', (as) => as.map((a) => a.getAttribute('href')));
     for (const id of ids) if (!links.includes(`./${id}/`)) fail(`${id} missing from alts/list.ts`);
     await index.close();
-    await Promise.all(ids.map((id) => checkAlt(browser, id)));
+    // 2 at a time: the software renderer slows every page down, and game time is capped per frame
+    for (let i = 0; i < ids.length; i += 2) await Promise.all(ids.slice(i, i + 2).map((id) => checkAlt(browser, id)));
     if (!process.exitCode) console.log(`ALTS OK (${ids.length})`);
   } finally {
     await browser.close();
