@@ -135,5 +135,9 @@
 - Done: `alts/08-doodle/` – notebook paper, sketchy double-stroke fighter with line boil, ink text.
 - Tests: alts green (2 at a time). Next: ALT-09 Animal Boxers. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-09 Animal Boxers (autopilot)
+- Done: `alts/09-animals/` – 8 animal rivals with species features, wind-up tell face, KO face.
+- Tests: alts green; all 7 reached animals rendered without errors. Next: ALT-10 No-Engine. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

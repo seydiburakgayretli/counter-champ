@@ -94,3 +94,15 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
 - **Cost to merge:** small as a skin, either/or with the current style.
 - **Risk:** the boil redraws the fighter Graphics 8×/s (small CPU cost); font differs per device (no font
   asset; the container fell back to serif). Yellow-on-paper contrast fixed for combo text.
+
+### ALT-09 Animal Boxers – `/alts/09-animals/` (ready, 2026-10-24)
+- **Hypothesis:** cute animal characters make better thumbnails and stronger click-through than humans,
+  and a visible "tell" face teaches timing without text.
+- **What changed:** 8 animals replace the human rivals (Bruno the Bear, Mittens, Doodle Doo, Hoppy, Hamhock,
+  Thumper, Billy, King Leo with mane + crown), each with its own ears/beak/snout. While winding up, the
+  animal squints and opens its mouth (the tell); hit = X-eyes + tongue. Same difficulty order.
+- **Size:** ~+21 KB raw (~7 KB gzip).
+- **Cost to merge:** small (~1 run): swap drawFighter + rival list; the tell face can also be added to the
+  human cast on its own.
+- **Risk:** tell face could make reading too easy (watch scores); names must stay brand/person-free
+  (renamed the rooster away from a real-person pun).

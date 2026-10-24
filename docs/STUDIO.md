@@ -62,7 +62,7 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
 - [x] ALT-06 Pixel Retro (art) – ready 2026-10-24, see docs/ALTS.md: same game, 8-bit pixel look (procedural pixel sprites, chiptune SFX).
 - [x] ALT-07 Neon Night (art) – ready 2026-10-24, see docs/ALTS.md: flat neon / synthwave, glow lines on dark, bloom-like flashes.
 - [x] ALT-08 Doodle Paper (art) – ready 2026-10-24, see docs/ALTS.md: sketchy hand-drawn lines on paper, wobble animation.
-- [ ] ALT-09 Animal Boxers (design language): cartoon animal cast (bear, cat, rooster…),
+- [x] ALT-09 Animal Boxers (design language) – ready 2026-10-24, see docs/ALTS.md: cartoon animal cast (bear, cat, rooster…),
       each with a funny tell and KO pose. Tests character appeal for thumbnails/clicks.
 - [ ] ALT-10 No-Engine (engine): core loop in plain Canvas2D + TS without Phaser; compare
       gzip size (now 341 KB), load time, fps, code size.
@@ -73,6 +73,7 @@ docs/ALTS.md (hypothesis, what changed, size, cost to bring into the main game, 
 inbox line: "ALT-nn: Keep / Kill / Merge into main?".
 
 ## Owner inbox (owner answers here or in chat; newest on top)
+- [ ] ALT-09 Animal Boxers (`/alts/09-animals/`): Keep / Kill / Merge into main?
 - [ ] ALT-08 Doodle Paper (`/alts/08-doodle/`): Keep / Kill / Make it the main style?
 - [ ] ALT-07 Neon Night (`/alts/07-neon/`): Keep / Kill / Make it the main style?
 - [ ] ALT-06 Pixel Retro (`/alts/06-pixel/`): Keep / Kill / Make it the main style?
