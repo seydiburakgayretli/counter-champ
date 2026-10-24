@@ -4,7 +4,7 @@ Tiny HTML5 arcade game for CrazyGames first, Poki later. Product owner decides, 
 Stack: Vite + TypeScript + Phaser 3.90, static build into `/dist`. Portal SDKs sit behind one
 adapter in `src/platform/`. Concept status: see docs/GDD.md (draft until the owner picks).
 Repo: `seydiburakgayretli/counter-champ`, branch `main` (Pages deploys from it). Never use `car-advisor`.
-Talk to the owner in Turkish. Answers: short and plain (max ~8 lines), no long lists; details go to docs. Code, comments, docs and game UI in English.
+Owner timezone: Europe/Amsterdam (give times in it, not UTC). Talk to the owner in Turkish. Answers: short and plain (max ~8 lines), no long lists; details go to docs. Code, comments, docs and game UI in English.
 
 ## Commands
 - `npm run dev` – dev server (local platform, fake ads)
