@@ -97,5 +97,11 @@
 - Bundle unchanged (341 KB gzip game chunk; alts share it). All tests green.
 - Next: ALT-01 Dodge & Counter. Model: Sonnet (running on Opus in this worker).
 
+## 2026-10-24 – ALT-01 Dodge & Counter (autopilot)
+- Done: `alts/01-dodge/` – heavy red punches, slip by tapping the other side, perfect slip → punish window
+  (details in docs/ALTS.md). Copies of GameScene/art in the alt folder; `src/` untouched.
+- Tests: alts + smoke green; scripted perfect player reached rival 3 with full hearts, punish fired.
+- Need: owner plays it (inbox). Next: ALT-02 Rhythm Fighter. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

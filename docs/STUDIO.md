@@ -49,7 +49,7 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
 - [x] CC-M6: Counter Champ release kit + final review (Opus) – done 2026-10-24
 - [x] CC-FIX: fix M6 review findings – the one finding was fixed inside CC-M6
 - [x] ALT-00: alternatives infra – done 2026-10-24 (`alts/`, `/alts/` index, `npm run test:alts`, how-to in docs/ALTS.md)
-- [ ] ALT-01 Dodge & Counter (model): swipe up / second key = dodge; some punches can't be
+- [x] ALT-01 Dodge & Counter (model) – ready 2026-10-24, see docs/ALTS.md: swipe up / second key = dodge; some punches can't be
       blocked, only dodged → dodge then counter for x2. Tests depth vs. one-thumb simplicity.
 - [ ] ALT-02 Rhythm Fighter (model): punches land on a music beat (generated WebAudio loop);
       counters on the beat score more; tempo rises per rival. Tests "flow" retention.
@@ -73,6 +73,7 @@ docs/ALTS.md (hypothesis, what changed, size, cost to bring into the main game, 
 inbox line: "ALT-nn: Keep / Kill / Merge into main?".
 
 ## Owner inbox (owner answers here or in chat; newest on top)
+- [ ] ALT-01 Dodge & Counter (`/alts/01-dodge/`): Keep / Kill / Merge into main?
 - [ ] Submit Counter Champ to CrazyGames: zip + covers in `release-assets/`, steps in docs/RELEASE.md (~15 min).
 - [ ] Look at the covers in `release-assets/covers/` – OK as is, or want a drawn cover later?
 - [ ] Phone check of Counter Champ (Pages link), both orientations.
