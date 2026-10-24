@@ -14,4 +14,5 @@ export const ALTS: Alt[] = [
   { id: '03-boss', name: 'Boss Rush', kind: 'model', line: 'One Champ, three phases with new tricks. Knock him out as fast as you can.', status: 'ready' },
   { id: '04-brawl', name: 'Four-Way Brawl', kind: 'model', line: 'Brawlers rush in from 4 sides. Tap their quadrant (or arrows) as they arrive.', status: 'ready' },
   { id: '05-shop', name: 'Glove Shop', kind: 'meta', line: 'Earn coins every run, buy upgrades: extra heart, wider timing, combo shield.', status: 'ready' },
+  { id: '06-pixel', name: 'Pixel Retro', kind: 'art', line: 'Same game, chunky 8-bit pixels and square-wave chiptune sounds.', status: 'ready' },
 ];

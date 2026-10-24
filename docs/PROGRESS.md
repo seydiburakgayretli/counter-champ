@@ -120,5 +120,10 @@
 - Done: `alts/05-shop/` – coins per run, 3 upgrades, shop panel on title/game over, compact over text.
 - Tests: alts green; scripted 2 runs → bought timing lvl 1, save persisted. Next: ALT-06 Pixel Retro. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-06 Pixel Retro (autopilot)
+- Done: `alts/06-pixel/` – 1/3-res render zoomed ×3 (CSS-transform approach failed: Phaser measured the
+  scaled size; switched to Phaser zoom + manual resize), thin outlines, monospace, square-wave SFX.
+- Tests: alts green; pointer hits verified in portrait + landscape. Next: ALT-07 Neon Night. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

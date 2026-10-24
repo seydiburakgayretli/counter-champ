@@ -64,3 +64,13 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
 - **Cost to merge:** small–medium (~1 run): shop panel + save; needs prices re-tuned with the real curve.
 - **Risk:** upgrades make the game easier over time → score comparisons less fair; the shop panel takes
   screen space at game over (restart still 1 tap). First purchase reachable after run 1–2 (scripted test).
+
+### ALT-06 Pixel Retro – `/alts/06-pixel/` (ready, 2026-10-24)
+- **Hypothesis:** a retro 8-bit look stands out in portal grids and fits the "Punch-Out" boxing memory.
+- **What changed:** the same vector game rendered at 1/3 resolution and zoomed ×3 with hard pixels
+  (Phaser zoom + pixelArt), thinner outlines, monospace font, square-wave "chiptune" SFX. Gameplay identical.
+- **Size:** ~+23 KB raw (~8 KB gzip; copies of scene/art/Fx/Sfx).
+- **Cost to merge:** small as a skin (zoom + art constants), but it replaces the current style – one art
+  style per game (market rule), so it is either/or.
+- **Risk:** small HUD text gets hard to read in landscape; pixel font is the system monospace (no custom
+  font asset). Pointer + keyboard input verified through the zoom in portrait and landscape.
