@@ -70,3 +70,4 @@ After release: analyze shared stats, propose the next 3 highest-impact changes o
 - docs/GDD.md – design (max 2 pages) · docs/PLAN.md – milestones + acceptance
 - docs/PROGRESS.md – append-only log (+ Overrides) · docs/IDEAS.md – parking lot
 - docs/PORTAL_CHECKLIST.md – CrazyGames + Poki requirements vs current build
+- docs/AUTOPILOT.md – rules for unattended scheduled runs (no owner present)
