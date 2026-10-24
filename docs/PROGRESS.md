@@ -89,5 +89,13 @@
 - Need: submit to CrazyGames (inbox), real QA tool run. Next: ALT-00 alternatives infra. Model: Sonnet.
 - Fun top 3: phone playtest of the first 10 s; bigger unlock celebration; dodge move (ALT-01 tests it).
 
+## 2026-10-24 – ALT-00 alternatives infra (autopilot)
+- Done: multi-page Vite build – Pages/dev build ships the game at `/` and alternatives at `/alts/<nn-slug>/`
+  plus an `/alts/` index (cards from `alts/list.ts`); portal builds stay game-only. `alts/00-base` = the
+  unchanged game as reference and copy template. Saves namespaced per alt (`BasePlatform.namespace`).
+  `npm run test:alts` checks the index lists every alt and each alt loads → starts → game over, no errors.
+- Bundle unchanged (341 KB gzip game chunk; alts share it). All tests green.
+- Next: ALT-01 Dodge & Counter. Model: Sonnet (running on Opus in this worker).
+
 ## Overrides
 (none)

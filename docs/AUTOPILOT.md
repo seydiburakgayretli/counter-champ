@@ -25,7 +25,7 @@ Used when a run is started by a scheduled task while the owner is away (prompt s
 - Submit to a portal, create accounts, touch `car-advisor`, force-push, rewrite history.
 - Skip/disable a test to get green. Start a game that is not on the Studio board. Add scope beyond PLAN.md
   (ideas → IDEAS.md).
-- Push a red build: build, typecheck, `npm run smoke`, `npm run test:portal` must pass.
+- Push a red build: build, typecheck, `npm run smoke`, `npm run test:portal`, `npm run test:alts` must pass.
   If they can't be made green in the run, commit nothing to `main`; log the failure.
 
 ## End

@@ -13,7 +13,8 @@
     "smoke": "node tests/smoke.cjs",
     "test:portal": "node tests/portal.cjs crazygames && node tests/portal.cjs poki",
     "release": "tsc --noEmit && node scripts/release.cjs",
-    "covers": "node scripts/covers.cjs"
+    "covers": "node scripts/covers.cjs",
+    "test:alts": "node tests/alts.cjs"
   },
   "dependencies": {
     "phaser": "3.90.0"

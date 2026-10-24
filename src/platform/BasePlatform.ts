@@ -2,6 +2,8 @@ import type { Platform } from './Platform';
 
 /** Shared behaviour: gameplay start/stop order guard, localStorage saves, SDK script loader. */
 export abstract class BasePlatform implements Platform {
+  /** Save key prefix; alternatives (alts/) set their own so they never touch the main game's save. */
+  static namespace = 'cc.';
   private playing = false;
 
   abstract init(): Promise<void>;
@@ -28,7 +30,7 @@ export abstract class BasePlatform implements Platform {
 
   save(key: string, value: string): void {
     try {
-      localStorage.setItem(`cc.${key}`, value);
+      localStorage.setItem(`${BasePlatform.namespace}${key}`, value);
     } catch {
       /* storage blocked: ignore */
     }
@@ -36,7 +38,7 @@ export abstract class BasePlatform implements Platform {
 
   load(key: string): string | null {
     try {
-      return localStorage.getItem(`cc.${key}`);
+      return localStorage.getItem(`${BasePlatform.namespace}${key}`);
     } catch {
       return null;
     }

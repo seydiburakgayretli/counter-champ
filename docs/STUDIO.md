@@ -48,10 +48,7 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
 ## Board (top = next). Autopilot takes the first unblocked line, marks it, appends the result.
 - [x] CC-M6: Counter Champ release kit + final review (Opus) – done 2026-10-24
 - [x] CC-FIX: fix M6 review findings – the one finding was fixed inside CC-M6
-- [ ] ALT-00: alternatives infra: `alts/<nn-slug>/` (own index.html + entry, may import from `src/`),
-      `npm run build:alts`, Pages builds main game at `/` and each alt at `/alts/<nn-slug>/`, plus
-      `/alts/` index page with one card per alt (name, one line, status). Smoke test per alt
-      (load → input → game over). Main game untouched. (Sonnet)
+- [x] ALT-00: alternatives infra – done 2026-10-24 (`alts/`, `/alts/` index, `npm run test:alts`, how-to in docs/ALTS.md)
 - [ ] ALT-01 Dodge & Counter (model): swipe up / second key = dodge; some punches can't be
       blocked, only dodged → dodge then counter for x2. Tests depth vs. one-thumb simplicity.
 - [ ] ALT-02 Rhythm Fighter (model): punches land on a music beat (generated WebAudio loop);
