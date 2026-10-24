@@ -32,7 +32,7 @@ Used when a run is started by a scheduled task while the owner is away (prompt s
 Append PROGRESS.md (Done / Bundle / Autopilot decisions / Need / Next + model), tick PLAN.md
 and the Board line, add owner questions to the STUDIO.md inbox,
 one commit, `git push origin main`. Time-box: stop after ~45 min of work and log where you are.
-Chain: if you finished a task and the Board still has an unblocked line, call the
-claude-code-remote tool `fire_trigger` with trigger_id `trig_01HVWMSwMnuoc3e1oYHetzRJ` as your
-last action, so the next run starts now instead of at the next hourly heartbeat. Never chain
-after a run that changed nothing or failed (prevents an empty loop).
+Chain: runs happen in the one worker session that can push (fresh trigger sessions get a 403 on
+push). After a finished task with more unblocked Board lines, call `fire_trigger` with trigger_id
+`trig_01LjPvfniK2MMQiC68DYP6Mk` as the last action; it queues the next run right after this turn.
+Never chain after a run that changed nothing or failed (prevents an empty loop).
