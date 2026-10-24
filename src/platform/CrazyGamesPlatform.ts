@@ -15,6 +15,8 @@ interface CrazySdk {
     gameplayStop(): void;
   };
   ad: { requestAd(type: 'midgame' | 'rewarded', cb: AdCallbacks): void };
+  /** Cloud-synced storage with the localStorage API (progress follows the player's account). */
+  data?: { getItem(key: string): string | null; setItem(key: string, value: string): void };
 }
 
 declare global {
@@ -39,6 +41,25 @@ export class CrazyGamesPlatform extends BasePlatform {
     } catch {
       this.sdk = null;
     }
+  }
+
+  save(key: string, value: string): void {
+    super.save(key, value);
+    try {
+      this.sdk?.data?.setItem(`cc.${key}`, value);
+    } catch {
+      /* local copy above is enough */
+    }
+  }
+
+  load(key: string): string | null {
+    try {
+      const v = this.sdk?.data?.getItem(`cc.${key}`);
+      if (v !== null && v !== undefined) return v;
+    } catch {
+      /* fall back to the local copy */
+    }
+    return super.load(key);
   }
 
   loadingStart(): void {

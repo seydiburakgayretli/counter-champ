@@ -31,6 +31,6 @@ a timer, and replacing the human's memory with files.
 
 ## Limits to know
 - The agent cannot see remaining quota; when the limit hits, runs fail until it resets.
-- Runs use the account's default model (now Sonnet), not the model tag on the board.
+- Runs use the worker session's model (now Opus), not the model tag on the board.
 - Anything outside the repo (portal accounts, submission, phone playtest) stays with the owner.
 - To stop: tell Claude "dur" (task gets disabled) or disable the scheduled task yourself.

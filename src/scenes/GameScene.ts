@@ -556,6 +556,8 @@ export class GameScene extends Phaser.Scene {
   }
 
   private gameOver(): void {
+    // the losing hit skips endThreat(): clear the telegraph so the next run starts clean
+    for (const g of this.oppGloves) g.setHot(false);
     this.sfx.gameOver();
     this.state = 'over';
     this.overAt = this.t;

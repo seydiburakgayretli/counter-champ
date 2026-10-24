@@ -12,7 +12,8 @@ const MOCKS = {
   crazygames: ['sdk.crazygames.com', `window.__log=[];const L=(n)=>window.__log.push(n);
     window.CrazyGames={SDK:{init:async()=>L('init'),game:{loadingStart:()=>L('loadingStart'),loadingStop:()=>L('loadingStop'),
     gameplayStart:()=>L('gameplayStart'),gameplayStop:()=>L('gameplayStop')},
-    ad:{requestAd:(t,cb)=>{L('ad:'+t);setTimeout(()=>cb.adFinished(),50);}}}};`],
+    ad:{requestAd:(t,cb)=>{L('ad:'+t);setTimeout(()=>cb.adFinished(),50);}},
+    data:{_m:{},getItem(k){return k in this._m?this._m[k]:null;},setItem(k,v){L('data:'+k);this._m[k]=String(v);}}}};`],
   poki: ['game-cdn.poki.com', `window.__log=[];const L=(n)=>window.__log.push(n);
     window.PokiSDK={init:async()=>L('init'),gameLoadingFinished:()=>L('loadingFinished'),gameplayStart:()=>L('gameplayStart'),
     gameplayStop:()=>L('gameplayStop'),commercialBreak:async()=>{L('commercialBreak');},rewardedBreak:async()=>{L('rewardedBreak');return true;}};`],
@@ -50,6 +51,7 @@ const MOCKS = {
     flow.forEach((e, i) => { if (i > 0 && flow[i - 1] === e) fail(`double ${e}`); });
     if (flow[0] !== 'gameplayStart') fail('first flow event is not gameplayStart');
     if (!log.some((e) => e.startsWith('ad:rewarded') || e === 'rewardedBreak')) fail('no rewarded call');
+    if (mode === 'crazygames' && !log.includes('data:cc.save')) fail('save not written to CrazyGames data module');
     if (errors.length) fail(`console errors: ${errors.join(' | ')}`);
     if (!process.exitCode) console.log('PORTAL OK');
   } catch (e) {

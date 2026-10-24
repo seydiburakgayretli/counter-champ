@@ -47,7 +47,7 @@ Acceptance: works on phone (both orientations) and desktop; size within budget.
 
 ## M6 – Release kit
 Model: Opus (final pre-release review)
-- [ ] Production zip per portal, PORTAL_CHECKLIST all green
-- [ ] Cover/icon images per portal spec, description, tags
-- [ ] Step-by-step submission notes for the owner
+- [x] Production zip per portal, PORTAL_CHECKLIST all green (except owner-only QA tool run)
+- [x] Cover/icon images per portal spec, description, tags
+- [x] Step-by-step submission notes for the owner (docs/RELEASE.md)
 Acceptance: owner can submit without asking questions.

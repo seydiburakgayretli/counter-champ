@@ -75,5 +75,19 @@
 - Need: open the Pages link on a phone, both orientations; tell me if it stutters.
 - Next: M6 release kit + final review (autopilot run 2/3, 03:00 UTC). Model: Opus.
 
+## 2026-10-24 – M6 release kit (autopilot, code done; owner submits)
+- Done: `npm run release` → per-portal zips (332 KB each, committed in `release-assets/`); covers
+  rendered from the real game (`npm run covers`: 1920x1080, 800x1200, 800x800, icon 512);
+  docs/RELEASE.md (store text, tags, controls, CrazyGames step-by-step, Poki note); checklist updated.
+- CrazyGames saves now also go to the SDK data module (progress follows the account), local fallback;
+  portal test checks it.
+- Final review: 1 bug fixed – losing on a telegraphed punch left that glove yellow into the next run
+  (misleading tell). No other blocking issues found in game flow, ad flow, save, pause.
+- Bundle 1.23 MB (341 KB gzip). Smoke + portal tests green, no console errors.
+- Autopilot infra: fresh trigger sessions got 403 on push → worker is now the owner's session
+  (`trig_01LjPvfniK2MMQiC68DYP6Mk`, hourly :32 + chaining). Model: Opus.
+- Need: submit to CrazyGames (inbox), real QA tool run. Next: ALT-00 alternatives infra. Model: Sonnet.
+- Fun top 3: phone playtest of the first 10 s; bigger unlock celebration; dodge move (ALT-01 tests it).
+
 ## Overrides
 (none)

@@ -46,8 +46,8 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
   Claude disables the task or drops to nights only.
 
 ## Board (top = next). Autopilot takes the first unblocked line, marks it, appends the result.
-- [ ] CC-M6: Counter Champ release kit + final review (Opus)
-- [ ] CC-FIX: fix M6 review findings (Sonnet)
+- [x] CC-M6: Counter Champ release kit + final review (Opus) – done 2026-10-24
+- [x] CC-FIX: fix M6 review findings – the one finding was fixed inside CC-M6
 - [ ] ALT-00: alternatives infra: `alts/<nn-slug>/` (own index.html + entry, may import from `src/`),
       `npm run build:alts`, Pages builds main game at `/` and each alt at `/alts/<nn-slug>/`, plus
       `/alts/` index page with one card per alt (name, one line, status). Smoke test per alt
@@ -76,5 +76,6 @@ docs/ALTS.md (hypothesis, what changed, size, cost to bring into the main game, 
 inbox line: "ALT-nn: Keep / Kill / Merge into main?".
 
 ## Owner inbox (owner answers here or in chat; newest on top)
-- [ ] Submit Counter Champ to CrazyGames after CC-M6 (steps will be in PROGRESS.md).
+- [ ] Submit Counter Champ to CrazyGames: zip + covers in `release-assets/`, steps in docs/RELEASE.md (~15 min).
+- [ ] Look at the covers in `release-assets/covers/` – OK as is, or want a drawn cover later?
 - [ ] Phone check of Counter Champ (Pages link), both orientations.
