@@ -112,5 +112,9 @@
 - Done: `alts/03-boss/` – one Champ, 3 phases, win screen with best time. Perfect script wins in 59 s.
 - Tests: alts green. Next: ALT-04 Four-Way Brawl. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-04 Four-Way Brawl (autopilot)
+- Done: `alts/04-brawl/` – new top-down scene, 4-direction arrivals, pooled brawlers, pace ramp over 90 s.
+- Tests: alts green; scripted player 45 s, no errors. Next: ALT-05 Glove Shop. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

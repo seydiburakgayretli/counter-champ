@@ -43,3 +43,14 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
   "boss every 3rd rival" in the endless run (~1 run).
 - **Risk:** a run that is won ends the session's goal → fewer replays once beaten; needs a harder boss
   ladder later. Scripted perfect player: won in 59 s with full hearts → real players ~80–120 s.
+
+### ALT-04 Four-Way Brawl – `/alts/04-brawl/` (ready, 2026-10-24)
+- **Hypothesis:** more simultaneous threats = more chaos and juice per second → stronger first 10 s.
+- **What changed:** new top-down scene: you in the centre with 4 fists; small brawlers rush in from
+  up/right/down/left with shrinking rings; tap that quadrant (screen split by the faint X) or arrows/WASD
+  at arrival. Perfect = POW (100×combo, capped ×10), early tap = MISS (combo lost), late = hit.
+  Pace ramps over 90 s (spawn gap 1100→420 ms, travel 1300→650 ms). 3 hearts, best score, retry ad.
+- **Size:** +9 KB raw (3.7 KB gzip) – own scene, reuses Fx/Sfx/Glove/platform.
+- **Cost to merge:** large – a different game, not a feature; would ship as its own title.
+- **Risk:** 4 directions on a phone = thumb travel and mis-taps on quadrant borders; loses the boxing
+  "read the opponent" identity. Scripted perfect player survives 45 s+ (bots don't tire; humans will).

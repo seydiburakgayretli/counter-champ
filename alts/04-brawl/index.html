@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Counter Champ</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #1b1d2b; touch-action: none; user-select: none; }
+      #game { position: fixed; inset: 0; }
+      #loading { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+        color: #fff; font: 700 20px system-ui, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="loading">Loading…</div>
+    <div id="game"></div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
