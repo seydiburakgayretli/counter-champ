@@ -108,5 +108,9 @@
 - Tests: alts + scripted perfect player (rival 3, full hearts) green. Audio not verifiable here.
 - Next: ALT-03 Boss Rush. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-03 Boss Rush (autopilot)
+- Done: `alts/03-boss/` – one Champ, 3 phases, win screen with best time. Perfect script wins in 59 s.
+- Tests: alts green. Next: ALT-04 Four-Way Brawl. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

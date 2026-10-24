@@ -32,3 +32,14 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
   (wind-ups now snap to eighths), decide hit-stop vs. beat.
 - **Risk:** needs sound to shine (many portal players are muted at first); losing hit-stop costs some
   punch. Not heard by Claude (no audio device) – owner must listen. Scripted player: rival 3, full hearts.
+
+### ALT-03 Boss Rush – `/alts/03-boss/` (ready, 2026-10-24)
+- **Hypothesis:** a clear goal ("beat the Champ") + best time drives mastery replays better than endless.
+- **What changed:** one opponent (The Champ), 3 phases: phase 1 = rival-2 speed, phase 2 adds feints and
+  doubles (rival-4 tells), phase 3 = rival-7 speed. Filling the bar = stagger + "PHASE n!" + 1 heart back.
+  Final KO = win screen with time; best time saved and shown on title/HUD. Loss screen shows phase + bar %.
+- **Size:** ~+18 KB raw (~6 KB gzip) on top of the shared game chunk.
+- **Cost to merge:** medium: works best as a second mode next to endless (mode select = new UI) or as
+  "boss every 3rd rival" in the endless run (~1 run).
+- **Risk:** a run that is won ends the session's goal → fewer replays once beaten; needs a harder boss
+  ladder later. Scripted perfect player: won in 59 s with full hearts → real players ~80–120 s.
