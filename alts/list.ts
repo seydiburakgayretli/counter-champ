@@ -18,4 +18,5 @@ export const ALTS: Alt[] = [
   { id: '07-neon', name: 'Neon Night', kind: 'art', line: 'Same game in synthwave neon: dark ring, glowing outlines, sunset grid.', status: 'ready' },
   { id: '08-doodle', name: 'Doodle Paper', kind: 'art', line: 'Same game drawn in wobbly pencil on notebook paper.', status: 'ready' },
   { id: '09-animals', name: 'Animal Boxers', kind: 'design', line: 'Bear, cat, rooster, frog… each animal squints before it swings. King Leo waits at the end.', status: 'ready' },
+  { id: '10-noengine', name: 'No-Engine', kind: 'engine', line: 'Core game in plain Canvas2D without Phaser: ~10x smaller download, simpler art.', status: 'ready' },
 ];

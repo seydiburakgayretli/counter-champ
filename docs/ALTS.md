@@ -106,3 +106,22 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
   human cast on its own.
 - **Risk:** tell face could make reading too easy (watch scores); names must stay brand/person-free
   (renamed the rooster away from a real-person pun).
+
+### ALT-10 No-Engine – `/alts/10-noengine/` (ready, 2026-10-24)
+- **Hypothesis:** dropping Phaser makes the game load near-instantly (better first 10 s, Poki likes tiny).
+- **What changed:** the core loop (same tuning, rivals, hearts, KO bar, feints, combo, hit-stop, shake,
+  pop-ups, platform adapter, SFX) rewritten in ~300 lines of plain Canvas2D + TS. Art simplified (circles,
+  boxes, text eyes); no doubles, unlocks or rewarded continue.
+- **Size:** page total 6 KB gzip vs 341 KB for the Phaser game (~55× smaller).
+  Measured headless on throttled "slow 4G": ready in 0.4 s vs 2.7 s; median frame 16.7 ms vs 33.4 ms.
+- **Cost to merge:** large – a full port of art (Graphics → Canvas paths), Fx, unlocks, ads flow
+  (~3–4 runs), but every later game would start from a 6 KB base.
+- **Risk:** we own everything Phaser gave us (scaling, input edge cases, text rendering); art redraw in
+  plain canvas is more work per style.
+
+## Claude's pick (for the owner's decision, 2026-10-24)
+Biggest money levers, in order: **ALT-09 animals** (thumbnail/click-through, the tell face also helps
+new players) → **ALT-01 dodge** (depth for retention, cheap to merge) → **ALT-05 shop** (return visits).
+Art style: keep one; animals fit the current clean style. **ALT-10** is the best long-term base (load
+speed) but a rewrite – do it only if Poki says yes or load time shows up in portal stats.
+Probably kill: ALT-04 (different game), ALT-02 (needs sound, many players muted).

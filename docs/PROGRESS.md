@@ -139,5 +139,12 @@
 - Done: `alts/09-animals/` – 8 animal rivals with species features, wind-up tell face, KO face.
 - Tests: alts green; all 7 reached animals rendered without errors. Next: ALT-10 No-Engine. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-10 No-Engine + alternatives done (autopilot)
+- Done: `alts/10-noengine/` – Canvas2D port of the core loop: 6 KB gzip vs 341 KB, ready 0.4 s vs 2.7 s on
+  throttled network, 60 vs 30 fps headless. All 10 alternatives live; summary + Claude's pick in docs/ALTS.md.
+- Tests: alts (11 pages) + smoke green.
+- Board: nothing unblocked until the owner answers Keep/Kill/Merge (heartbeat keeps checking hourly, cheap).
+- Next: owner verdicts → merge the kept ones into the main game. Model: Opus for the merge plan, then Sonnet.
+
 ## Overrides
 (none)
