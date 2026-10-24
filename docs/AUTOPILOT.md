@@ -5,8 +5,8 @@ Used when a run is started by a scheduled task while the owner is away (prompt s
 
 ## Start
 1. `git pull origin main`. Read CLAUDE.md, last PROGRESS.md entry, PLAN.md.
-2. If the last commit is less than 10 min old and not from an autopilot run, the owner is
-   working: stop without changes.
+2. If the last commit is less than 10 min old and its message has no "[autopilot]" tag, the
+   owner is working: stop without changes. Tag every autopilot commit message with "[autopilot]".
 3. Pick the run's task: the prompt's task, else the first unblocked line of the Board in
    docs/STUDIO.md (respect its WIP limits). Mark it "in progress (date)" first and push, so a
    parallel run skips it. Nothing unblocked → stop without changes.
@@ -31,4 +31,8 @@ Used when a run is started by a scheduled task while the owner is away (prompt s
 ## End
 Append PROGRESS.md (Done / Bundle / Autopilot decisions / Need / Next + model), tick PLAN.md
 and the Board line, add owner questions to the STUDIO.md inbox,
-one commit, `git push origin main`. Time-box: stop after ~60 min of work and log where you are.
+one commit, `git push origin main`. Time-box: stop after ~45 min of work and log where you are.
+Chain: if you finished a task and the Board still has an unblocked line, call the
+claude-code-remote tool `fire_trigger` with trigger_id `trig_01HVWMSwMnuoc3e1oYHetzRJ` as your
+last action, so the next run starts now instead of at the next hourly heartbeat. Never chain
+after a run that changed nothing or failed (prevents an empty loop).

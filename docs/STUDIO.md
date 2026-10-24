@@ -20,6 +20,7 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
   Pages deploy and docs are ~40 % of a game. Extract once into a template → each new game starts there.
 
 ## Operating model
+(New games paused by owner 2026-10-24; current focus: Counter Champ alternatives, see Board.)
 1. **Release first.** Counter Champ goes to CrazyGames before any new game takes > 1 run.
 2. **Prototype lab.** One run = one grey-box prototype (core loop only, ~45 s fun test, Pages link).
    Owner plays 2 min on phone → Keep / Kill in the inbox. No verdict → no further work on it.
@@ -31,32 +32,49 @@ the owner only decides (inbox) and submits. Read with docs/AUTOPILOT.md (run rul
    events, viral memes kept PEGI-12 and brand-free; no real people, no trademarks).
 
 ## WIP limits
-- Owner decision (2026-10-24): use all idle quota. Prototypes do NOT wait for owner picks:
-  Claude builds the top-scored concepts itself; the owner only plays and marks Keep/Kill.
-  Only Keep games get submitted.
-- Max 6 prototypes waiting for a verdict (then: polish the best-scored one instead), 1 game in production.
+- Owner decision (2026-10-24, later): stay in this repo, no new games. Use idle quota to explore
+  10 alternatives of Counter Champ (game model, art style / design language, engine).
+- Each task goes only up to the owner's decision point: playable link + short comparison +
+  one Keep/Kill/Merge question in the inbox. Then the next task starts; nothing waits.
 - Each run: one task, time-box ~45 min, tests green or nothing is pushed. `git pull --rebase`
   right before push (parallel runs).
 
 ## Budget (schedule = quota)
-- Hourly, 24/7, until the limit is hit; a run that hits the limit just fails, the next one retries.
+- Hourly heartbeat 24/7 + chaining: a run that finished a task and sees more unblocked work
+  fires the next run at once (see AUTOPILOT.md "End"). A run that hits the limit just fails.
 - Risk: the weekly cap can also block the owner's own daytime use. Owner says "dur"/"yavaşla" →
   Claude disables the task or drops to nights only.
 
 ## Board (top = next). Autopilot takes the first unblocked line, marks it, appends the result.
-- [ ] CC-M6: Counter Champ release kit + final review (Opus) – scheduled tonight
+- [ ] CC-M6: Counter Champ release kit + final review (Opus)
 - [ ] CC-FIX: fix M6 review findings (Sonnet)
-- [ ] STUDIO-TEMPLATE: `template/` in this repo (platform adapter, ads flow, save, smoke/portal tests,
-      docs skeleton) + Pages workflow also builds `prototypes/<slug>/` to `/proto/<slug>/` and an
-      index page listing them. Moves to `game-studio` once the owner creates it. (Sonnet)
-- [ ] SCOUT: 10 concepts scored (fun in 10 s, one-thumb, proven web mechanic, timely theme, build
-      cost) in docs/CONCEPTS.md; add PROTO lines for the top 6 to this board. (Opus)
-- [ ] PROTO-n: grey-box prototype from the template, playable Pages link, smoke test; Keep/Kill
-      line in the owner inbox. (Sonnet)
-- [ ] When no PROTO is unblocked: polish the highest-scored prototype without a Kill (one feel/
-      juice pass per run).
+- [ ] ALT-00: alternatives infra: `alts/<nn-slug>/` (own index.html + entry, may import from `src/`),
+      `npm run build:alts`, Pages builds main game at `/` and each alt at `/alts/<nn-slug>/`, plus
+      `/alts/` index page with one card per alt (name, one line, status). Smoke test per alt
+      (load → input → game over). Main game untouched. (Sonnet)
+- [ ] ALT-01 Dodge & Counter (model): swipe up / second key = dodge; some punches can't be
+      blocked, only dodged → dodge then counter for x2. Tests depth vs. one-thumb simplicity.
+- [ ] ALT-02 Rhythm Fighter (model): punches land on a music beat (generated WebAudio loop);
+      counters on the beat score more; tempo rises per rival. Tests "flow" retention.
+- [ ] ALT-03 Boss Rush (model): one big rival per run with 3 phases and new tells per phase,
+      60–90 s runs, best time to KO. Tests mastery vs. endless.
+- [ ] ALT-04 Four-Way Brawl (model): attackers from 4 sides (tap the quadrant / arrows),
+      crowd of small opponents. Tests chaos/juice vs. readability.
+- [ ] ALT-05 Glove Shop (meta): coins per run, buy upgrades (extra heart, wider perfect window,
+      combo shield) between runs. Tests retention / session count.
+- [ ] ALT-06 Pixel Retro (art): same game, 8-bit pixel look (procedural pixel sprites, chiptune SFX).
+- [ ] ALT-07 Neon Night (art): flat neon / synthwave, glow lines on dark, bloom-like flashes.
+- [ ] ALT-08 Doodle Paper (art): sketchy hand-drawn lines on paper, wobble animation.
+- [ ] ALT-09 Animal Boxers (design language): cartoon animal cast (bear, cat, rooster…),
+      each with a funny tell and KO pose. Tests character appeal for thumbnails/clicks.
+- [ ] ALT-10 No-Engine (engine): core loop in plain Canvas2D + TS without Phaser; compare
+      gzip size (now 341 KB), load time, fps, code size.
+- [ ] When no line is unblocked: polish the alt with the most "Keep" answers (one pass per run).
+
+Per ALT, decision point = playable `/alts/<nn-slug>/` link, smoke test green, 5 lines in
+docs/ALTS.md (hypothesis, what changed, size, cost to bring into the main game, risk) and an
+inbox line: "ALT-nn: Keep / Kill / Merge into main?".
 
 ## Owner inbox (owner answers here or in chat; newest on top)
-- [ ] Optional: create empty public repo `seydiburakgayretli/game-studio` (Claude's GitHub app cannot create repos); until then prototypes live in `prototypes/` here.
 - [ ] Submit Counter Champ to CrazyGames after CC-M6 (steps will be in PROGRESS.md).
 - [ ] Phone check of Counter Champ (Pages link), both orientations.
