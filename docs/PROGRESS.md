@@ -131,5 +131,9 @@
   parallel on software GL → timeouts; misread a `tail -1`). Fixed next commit: alts run 2 at a time, all 8 green.
   Next: ALT-08 Doodle Paper. Model: Sonnet (running on Opus).
 
+## 2026-10-24 – ALT-08 Doodle Paper (autopilot)
+- Done: `alts/08-doodle/` – notebook paper, sketchy double-stroke fighter with line boil, ink text.
+- Tests: alts green (2 at a time). Next: ALT-09 Animal Boxers. Model: Sonnet (running on Opus).
+
 ## Overrides
 (none)

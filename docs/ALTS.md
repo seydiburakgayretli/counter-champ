@@ -84,3 +84,13 @@ Play: https://seydiburakgayretli.github.io/counter-champ/alts/ (one card per alt
 - **Risk:** Phaser's real glow shader (postFX) was tried and dropped – it froze the software renderer and
   would hurt weak phones. Even without it, the full-screen grid costs frame time headless (50 vs 33 ms);
   check fps on a phone before choosing this.
+
+### ALT-08 Doodle Paper – `/alts/08-doodle/` (ready, 2026-10-24)
+- **Hypothesis:** a hand-drawn notebook look is friendly, unusual on portals and reads well in light mode.
+- **What changed:** paper background with ruled lines and red margin, pencil ropes, opponent redrawn as
+  wobbly double-stroked sketch shapes with a "line boil" (new wobble ~8×/s), dark ink text on paper,
+  handwriting font stack (Comic Sans / Marker Felt / Chalkboard, falls back to serif). Gameplay identical.
+- **Size:** ~+18 KB raw (~6.7 KB gzip).
+- **Cost to merge:** small as a skin, either/or with the current style.
+- **Risk:** the boil redraws the fighter Graphics 8×/s (small CPU cost); font differs per device (no font
+  asset; the container fell back to serif). Yellow-on-paper contrast fixed for combo text.

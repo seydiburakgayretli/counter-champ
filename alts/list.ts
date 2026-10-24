@@ -16,4 +16,5 @@ export const ALTS: Alt[] = [
   { id: '05-shop', name: 'Glove Shop', kind: 'meta', line: 'Earn coins every run, buy upgrades: extra heart, wider timing, combo shield.', status: 'ready' },
   { id: '06-pixel', name: 'Pixel Retro', kind: 'art', line: 'Same game, chunky 8-bit pixels and square-wave chiptune sounds.', status: 'ready' },
   { id: '07-neon', name: 'Neon Night', kind: 'art', line: 'Same game in synthwave neon: dark ring, glowing outlines, sunset grid.', status: 'ready' },
+  { id: '08-doodle', name: 'Doodle Paper', kind: 'art', line: 'Same game drawn in wobbly pencil on notebook paper.', status: 'ready' },
 ];
